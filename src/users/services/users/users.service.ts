@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateUserType } from 'src/utils/types';
+import { CreateUserDto } from 'src/users/dtos/CreateUser.dto';
 
 @Injectable()
 export class UsersService {
@@ -7,8 +7,11 @@ export class UsersService {
   fetchUsers() {
     return this.fakeUsers;
   }
-  createUser(userDetails: CreateUserType) {
+  createUser(userDetails: CreateUserDto) {
     this.fakeUsers.push(userDetails);
     return;
+  }
+  fetchUserById(id: number) {
+    return { id, username: 'W0Ifyy', email: 'w0ifyy@gmail.com' };
   }
 }
